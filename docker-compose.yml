@@ -1,0 +1,35 @@
+version: '3.8'
+
+networks:
+  default:
+    external:
+      name: backend
+
+services:
+
+  discount.db:
+    image: postgres
+    container_name: discount.db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=DiscountDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volume_postgre:/var/lib/postgresql/data/
+
+  discount.webapi:
+    image: ${DOCKER_REGISTRY-}discount.webapi
+    container_name: discount.webapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=discount.db;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;"
+    ports:
+      - 5500:80
+    depends_on:
+      - discount.db

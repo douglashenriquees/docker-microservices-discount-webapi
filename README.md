@@ -14,15 +14,6 @@
 * ```app.UseSwaggerUI(x => { x.SwaggerEndpoint("/swagger/v1/swagger.json", "V1"); x.RoutePrefix = ""; });```
   * modificação na classe **Program.cs** para redirecionar ao **swagger** acessando a url exposta na api
 
-## Executando o Container do MongoDB
-
-* ```docker run -d -p 27017:27017 --name catalog-mongo mongo```
-
-## Build da Imagem da WebApi
-
-* ```docker build -t catalog-webapi . --no-cache```
-* ```docker run -p 4400:80 --name catalog-webapi catalog-webapi```
-
 ## Build do Cenário com Docker-Compose
 
 * ```docker network create backend```
