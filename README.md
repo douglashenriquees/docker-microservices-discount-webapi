@@ -23,11 +23,4 @@
 
 ## DDL Database
 
-* ```
-    CREATE TABLE public.Coupon (
-      Id SERIAL PRIMARY KEY,
-      ProductName VARCHAR(24) NOT NULL,
-      Description TEXT,
-      Amount INT
-    );
-  ```
+* ```CREATE TABLE public.Coupon (Id SERIAL PRIMARY KEY, ProductName VARCHAR(24) NOT NULL, Description TEXT, Amount INT);```

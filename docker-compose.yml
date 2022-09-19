@@ -28,7 +28,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=discount.db;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;"
+      - DatabaseSettings:ConnectionString=Server=discount.db;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;
     ports:
       - 5500:80
     depends_on:
