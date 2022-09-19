@@ -28,7 +28,7 @@ public class DiscountController : ControllerBase
     {
         await _discountRepository.CreateDiscount(coupon);
 
-        return CreatedAtRoute("get", new { productName = coupon.ProductName });
+        return Created("", new { productName = coupon.ProductName });
     }
 
     [HttpPut]

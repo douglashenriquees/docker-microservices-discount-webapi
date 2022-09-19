@@ -20,3 +20,14 @@
 * ```docker-compose build --no-cache```
 * ```docker-compose up -d```
 * ```docker-compose down --rmi all -v```
+
+## DDL Database
+
+* ```
+    CREATE TABLE public.Coupon (
+      Id SERIAL PRIMARY KEY,
+      ProductName VARCHAR(24) NOT NULL,
+      Description TEXT,
+      Amount INT
+    );
+  ```

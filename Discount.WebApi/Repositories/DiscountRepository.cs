@@ -24,7 +24,7 @@ public class DiscountRepository : IDiscountRepository
 
     public async Task<bool> CreateDiscount(Coupon coupon)
     {
-        var query = "INSERT INTO Coupon (ProductName, Description, Amount) VALUES (@, @, @)";
+        var query = "INSERT INTO Coupon (ProductName, Description, Amount) VALUES (@ProductName, @Description, @Amount)";
 
         var affected = await _connection.ExecuteAsync(query, coupon);
 
@@ -33,7 +33,7 @@ public class DiscountRepository : IDiscountRepository
 
     public async Task<bool> UpdateDiscount(Coupon coupon)
     {
-        var query = "UPDATE Coupon SET ProductName = @, Description = @, Amount = @ WHERE Id = @";
+        var query = "UPDATE Coupon SET ProductName = @ProductName, Description = @Description, Amount = @Amount WHERE Id = @Id";
 
         var affected = await _connection.ExecuteAsync(query, coupon);
 
@@ -42,7 +42,7 @@ public class DiscountRepository : IDiscountRepository
 
     public async Task<bool> DeleteDiscount(string productName)
     {
-        var query = "DELETE FROM Coupon WHERE ProductName = @";
+        var query = "DELETE FROM Coupon WHERE ProductName = @ProductName";
 
         var affected = await _connection.ExecuteAsync(query, new { ProductName = productName });
 
